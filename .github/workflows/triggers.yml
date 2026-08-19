@@ -1,0 +1,66 @@
+name: Aprendiendo a usar Trigger en GitHub Actions
+run-name: Runner - Aprendiendo a usar Trigger en GitHub Actions
+
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+  pull_request:
+    branches:
+      - aprendiendo-github-actions
+  workflow_dispatch:
+    inputs:
+      lenguaje:
+        description: 'Lenguaje de programación'
+        required: true
+        type: choice
+        options:
+          - Python
+          - JavaScript
+          - Java
+          - C++
+        default: 'Sin lenguaje'
+      nombre:
+        description: 'Ingresa tu nombre'
+        required: true
+        type: string
+        default: 'Nombre de usuario'
+  schedule:
+    - cron: '5 * * * *'  # Ejecutar cada minuto (ajusta según tus necesidades)
+
+jobs:
+  hola-mundo:
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Ejecutar hola_mundo.py
+        run: python hola_mundo.py
+
+  hola-mundo-manual:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    env:
+      LANGUAGE: ${{ inputs.lenguaje }}
+      NOMBRE: ${{ inputs.nombre }}
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Ejecutar hola_mundo_manual.py
+        run: python hola_mundo_manual.py
+
+  hola-mundo-cron:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Ejecutar hola_mundo_cron.py
+        run: python hola_mundo_cron.py
