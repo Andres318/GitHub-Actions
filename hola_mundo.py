@@ -1,7 +1,7 @@
 import os
 
 def main():
-    nombre = os.getenv("USERNAME")
+    nombre = os.getenv("USERNAME", "No se ha definido la variable de entorno USERNAME")
     print(f"¡Hola, {nombre} desde GitHub!")
 
 

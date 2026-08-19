@@ -32,6 +32,8 @@ jobs:
   hola-mundo:
     if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    env:
+      USERNAME: ${{ github.actor }}
 
     steps:
       - name: Checkout del repositorio
