@@ -4,10 +4,10 @@ run-name: Runner - Aprendiendo a usar Trigger en GitHub Actions
 on:
   push:
     branches:
-      - aprendiendo-github-actions
+      - main
   pull_request:
     branches:
-      - aprendiendo-github-actions
+      - main
   workflow_dispatch:
     inputs:
       lenguaje:
