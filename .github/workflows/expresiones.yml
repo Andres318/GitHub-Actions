@@ -8,6 +8,9 @@ jobs:
 
         env: 
             QUIZ_NOMBRE: Ada Lovelace
+            QUIZ_LENGUAJE: Python
+            QUIZ_NUMERO: 42
+            
 
         steps:
             - name: Checkout del repositorio
