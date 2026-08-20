@@ -30,7 +30,8 @@ on:
 
 jobs:
   hola-mundo:
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    if: false #Job deshabilitado
+    #if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     env:
       USERNAME: ${{ github.actor }}
@@ -43,7 +44,8 @@ jobs:
         run: python hola_mundo.py
 
   hola-mundo-manual:
-    if: github.event_name == 'workflow_dispatch'
+    if: false #Job deshabilitado
+    #if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     env:
       LANGUAGE: ${{ inputs.lenguaje }}
@@ -57,7 +59,8 @@ jobs:
         run: python hola_mundo_manual.py
 
   hola-mundo-cron:
-    if: github.event_name == 'schedule'
+    if: false #Job deshabilitado
+    #if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
 
     steps:
