@@ -10,6 +10,11 @@ jobs:
             QUIZ_NOMBRE: Ada Lovelace
             QUIZ_LENGUAJE: Python
             QUIZ_NUMERO: 42
+            QUIZ_ENTORNO: production
+            QUIZ_FUNCION: true
+            QUIZ_HEXADECIMAL: 1A
+            QUIZ_FLOAT: 3.14159
+
             
 
         steps:
