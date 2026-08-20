@@ -1,0 +1,16 @@
+name: Expresiones en GitHub Actions
+run-name: Runner - Expresiones en GitHub Actions
+on:
+    push
+jobs:
+    quiz-expresiones:
+        runs-on: debian-latest
+
+        #env:
+
+        steps:
+            - name: Checkout del repositorio
+              uses: actions/checkout@v4
+
+            - name: Ejecutar quiz_exp.py
+              run: python quiz_exp.py
