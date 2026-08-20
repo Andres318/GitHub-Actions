@@ -6,7 +6,8 @@ jobs:
     quiz-expresiones:
         runs-on: ubuntu-latest
 
-        #env: 
+        env: 
+            QUIZ_NOMBRE: Ada Lovelace
 
         steps:
             - name: Checkout del repositorio
