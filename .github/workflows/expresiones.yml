@@ -24,8 +24,8 @@ jobs:
 
             - name: Convertir decimal a hexadecimal
               run: |
-                    $decimal = ${{ env.TEMP_INT_TO_HEXA }}
-                    $hexadecimal = [Convert]::ToString($decimal, 16)   
+                    decimal = ${{ env.TEMP_INT_TO_HEXA }}
+                    hexadecimal = $(printf '%x' $decimal)
                     echo "Decimal: $decimal"
                     echo "Hexadecimal: $hexadecimal"
                     echo "QUIZ_HEXADECIMAL=$hexadecimal" >> $GITHUB_ENV
