@@ -12,7 +12,8 @@ jobs:
             QUIZ_NUMERO: 42
             QUIZ_ENTORNO: production
             QUIZ_FUNCION: true
-            QUIZ_HEXADECIMAL: 1A
+            TEMP_INT_TO_HEXA: 26
+            QUIZ_HEXADECIMAL: 0
             QUIZ_FLOAT: 3.14159
 
             
@@ -20,6 +21,13 @@ jobs:
         steps:
             - name: Checkout del repositorio
               uses: actions/checkout@v4
+
+            - name: Convertir decimal a hexadecimal
+              run: |
+                    $decimal = ${{ env.TEMP_INT_TO_HEXA }}
+                    $hexadecimal = [Convert]::ToString($decimal, 16)      
+                    echo "QUIZ_HEXADECIMAL=$hexadecimal" >> $GITHUB_ENV
+
 
             - name: Ejecutar quiz_expresiones.py
               run: python quiz_expresiones.py
