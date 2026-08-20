@@ -16,6 +16,9 @@ jobs:
             TEMP_HEXA_TO_INT: 0
             QUIZ_HEXADECIMAL: 0
             QUIZ_FLOAT: 3.14159
+            TEMP_JSON: '{"nombre": "Ada Lovelace", "lenguaje"   : "Python", "numero": 100, }'
+            QUIZ_FROMJSON_NUMERO: 0
+
 
             
 
@@ -32,6 +35,10 @@ jobs:
                   echo "Hexadecimal: $hexadecimal"
                   echo "Decimal a Hexadecimal: $quiz_hexadecimal"
                   echo "QUIZ_HEXADECIMAL=$quiz_hexadecimal" >> $GITHUB_ENV
+
+            - name: Extraer numero de JSON (fromJSON)
+              run:  |
+                  echo "QUIZ_FROMJSON_NUMERO=${{fromJson(env.TEMP_JSON).numero}}" >> $GITHUB_ENV
 
             - name: Ejecutar quiz_expresiones.py
               run: python quiz_expresiones.py
