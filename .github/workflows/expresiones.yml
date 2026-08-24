@@ -28,6 +28,23 @@ jobs:
             - name: Checkout del repositorio
               uses: actions/checkout@v4
 
+            - name: Imprimir variables
+              run: |
+                   echo "Nombre: ${{ env.QUIZ_NOMBRE }}"
+                   echo "Lenguaje: ${{ env.QUIZ_LENGUAJE }}"
+                   echo "Número: ${{ env.QUIZ_NUMERO }}"
+                   echo "Entorno: ${{ env.QUIZ_ENTORNO }}"
+                   echo "Función: ${{ env.QUIZ_FUNCION }}"
+                   echo "temp_int_to_hexa: ${{ env.TEMP_INT_TO_HEXA }}"
+                   echo "temp_hexa_to_int: ${{ env.TEMP_HEXA_TO_INT }}"
+                   echo "Hexadecimal: ${{ env.QUIZ_HEXADECIMAL }}"
+                   echo "Flotante: ${{ env.QUIZ_FLOAT }}"
+                   echo "Temp JSON: ${{ env.TEMP_JSON }}"
+                   echo "Quiz fromJSON Numero: ${{ env.QUIZ_FROMJSON_NUMERO }}"
+                   echo "Temp GitHub Actions: ${{ env.TEMP_GITHUB_ACTIONS }}
+                   echo "Temp String JSON: ${{ env.TEMP_STRING_JSON }}"
+
+
             - name: Convertir decimal a hexadecimal
               run: |
                   decimal=${{ env.TEMP_INT_TO_HEXA }}
@@ -52,7 +69,7 @@ jobs:
 
             - name: Convertir a JSON Array (toJSON)
               run: |
-                  echo 'QUIZ_TOJSON_LISTA=${{toJSON(fromJSON(format('["{0}", "{1}", "{2}"]', env.QUIZ_LENGUAJE, env.TEMP_GITHUB_ACTIONS, env.TEMP_STRING_JSON))) }}' >> $GITHUB_ENV
+                  echo 'QUIZ_TOJSON_LISTA=${{ toJSON(fromJSON(format('["{0}", "{1}", "{2}"]', env.QUIZ_LENGUAJE, env.TEMP_GITHUB_ACTIONS, env.TEMP_STRING_JSON))) }}' >> $GITHUB_ENV
 
             #- name: Convertir a JSON Object (toJSON)
             #  run: |
