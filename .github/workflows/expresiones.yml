@@ -16,7 +16,7 @@ jobs:
             TEMP_HEXA_TO_INT: 0
             QUIZ_HEXADECIMAL: 0
             QUIZ_FLOAT: 3.14159
-            TEMP_JSON: '{"nombre": "Ada Lovelace", "lenguaje"   : "Python", "numero": 100, }'
+            TEMP_JSON: '{"nombre": "Ada Lovelace", "lenguaje"   : "Python", "numero": 100 }'
             QUIZ_FROMJSON_NUMERO: 0
 
 
