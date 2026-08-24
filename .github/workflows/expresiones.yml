@@ -16,7 +16,7 @@ jobs:
             TEMP_HEXA_TO_INT: 0
             QUIZ_HEXADECIMAL: 0
             QUIZ_FLOAT: 3.14159
-            TEMP_JSON: '{"nombre": "Ada Lovelace", "lenguaje"   : "Python", "numero": 100, "flotante": 2.71828, "booleano": true}'
+            TEMP_JSON: '{"nombre": "Ada Lovelace", "lenguaje": "Python", "numero": 100, "flotante": 2.71828, "booleano": true}'
             QUIZ_FROMJSON_NUMERO: 0
             TEMP_GITHUB_ACTIONS: GitHub Actions
             TEMP_STRING_JSON: JSON
@@ -52,7 +52,7 @@ jobs:
 
             - name: Convertir a JSON Array (toJSON)
               run: |
-                  echo 'QUIZ_TOJSON_LISTA=${{ toJSON(fromJSON(format('["{0}", "{1}", "{2}"]', env.QUIZ_LENGUAJE, env.TEMP_GITHUB_ACTIONS, env.TEMP_STRING_JSON))) }}' >> $GITHUB_ENV
+                  echo 'QUIZ_TOJSON_LISTA=${{toJSON(fromJSON(format('["{0}", "{1}", "{2}"]', env.QUIZ_LENGUAJE, env.TEMP_GITHUB_ACTIONS, env.TEMP_STRING_JSON))) }}' >> $GITHUB_ENV
 
             #- name: Convertir a JSON Object (toJSON)
             #  run: |
