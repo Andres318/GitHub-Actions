@@ -69,7 +69,11 @@ jobs:
 
             - name: Convertir a JSON Array (toJSON)
               run: |
-                  echo 'QUIZ_TOJSON_LISTA=${{ toJSON(fromJSON(format('["{0}", "{1}", "{2}"]', env.QUIZ_LENGUAJE, env.TEMP_GITHUB_ACTIONS, env.TEMP_STRING_JSON))) }}' >> $GITHUB_ENV
+                  {
+                    echo 'QUIZ_TOJSON_LISTA<<EOF'
+                    echo '${{ toJSON(fromJSON(format('["{0}", "{1}", "{2}"]', env.QUIZ_LENGUAJE, env.TEMP_GITHUB_ACTIONS, env.TEMP_STRING_JSON))) }}'
+                    echo 'EOF'
+                  } >> "$GITHUB_ENV"
 
             #- name: Convertir a JSON Object (toJSON)
             #  run: |
